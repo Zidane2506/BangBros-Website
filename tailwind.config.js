@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily:{
-      'Poppins' : ['Poppins']
+      'Poppins' : ['Poppins'],
+      'Monospace' : ['Space Mono']
     }
   },
   plugins: [require('flowbite/plugin')],
