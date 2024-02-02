@@ -18,407 +18,397 @@
     <link rel="stylesheet" href="/src/public/output-style.css">
     <!-- Flowbite -->
     <link href="/node_modules/flowbite/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Boxicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
+<script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+
+    // Whenever the user explicitly chooses light mode
+    localStorage.theme = 'light'
+
+    // Whenever the user explicitly chooses dark mode
+    localStorage.theme = 'dark'
+
+    // Whenever the user explicitly chooses to respect the OS preference
+    localStorage.removeItem('theme')
+</script>
+
 <body>
-    <!-- NAVBAR -->
-    <nav class="border-gray-200 bg-slate-900">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 shadow-xl">
-            <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="/src/img/logopin.png" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-Poppins font-semibold whitespace-nowrap text-white">Bang<span
-                        class="self-center text-2xl font-Poppins font-semibold whitespace-nowrap ms-1 p-0 px-2 text-black bg-amber-600 rounded-sm">Bros</span></span>
-            </a>
-            <div class="flex items-center space-x-6 rtl:space-x-reverse">
-                <a href="tel:5541251234"
-                    class="text-sm font-Poppins font-bold text-center text-white hover:text-amber-600 ease-in duration-200">Sign
-                    Up</a>
-                <span class="text-gray-400 h-full">|</span>
-                <a href="#"
-                    class="text-sm font-Poppins font-bold text-center text-white hover:text-amber-600 ease-in duration-200">Login</a>
-            </div>
-        </div>
-    </nav>
-    <nav class="bg-slate-800">
-        <div class="max-w-screen-xl px-4 py-3 mx-auto">
-            <div class="flex items-center">
-                <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
-                    <li>
-                        <a href="#"
-                            class="text-white font-Poppins font-medium hover:text-amber-600 ease-in duration-200"
-                            aria-current="page">Home</a>
-                    </li>
-                    <button id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown"
-                        class="flex items-center justify-between w-full py-2 px-3 font-medium text-white rounded md:w-auto hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-amber-600 md:p-0 ease-in duration-200">Resources
-                        <svg class="w-2.5 h-2.5 ms-2.5 mt-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 4 4 4-4" />
-                        </svg></button>
-                    <li>
-                        <a href="#"
-                            class="text-white font-Poppins font-medium hover:text-amber-600 ease-in duration-200">Pricing</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div id="mega-menu-full-dropdown" class="mt-1 shadow-sm bg-slate-900 hidden">
-            <div class="grid max-w-screen-xl px-4 py-5 mx-auto text-white sm:grid-cols-2 md:px-6">
-                <ul>
-                    <li>
-                        <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
-                            <div class="font-semibold text-white">Features</div>
-                            <span class="text-sm text-gray-400">Explore all BangBros features and try them
-                                yourself</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
-                            <div class="font-semibold text-white">Integrations</div>
-                            <span class="text-sm text-gray-400">Connect BangBros with your favorite tools</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
-                            <div class="font-semibold text-white group">Documentation</div>
-                            <span class="text-sm text-gray-400">Learn how to use BangBros API</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
-                            <div class="font-semibold text-white">Support</div>
-                            <span class="text-sm text-gray-400">Get answers to your questions about BangBros</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
-                            <div class="font-semibold text-white">Bros AI 🪄 <span
-                                    class="inline-block align-middle rounded-lg border border-lime-500 text-lime-500 px-2 ml-1.5 mb-[3.5px]">New</span>
-                            </div>
-                            <span class="text-sm text-gray-400">Design your own custom badges and stickers</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
-                            <div class="font-semibold text-white">Blog</div>
-                            <span class="text-sm text-gray-400">Read the latest news about BangBros</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- N NAVBAR -->
-
-    <!-- HOME -->
-    <div class="container flex content-center">
-        <div class="w-full flex justify-center text-center"
-            style="background-image: url(/src/img/Background-home.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;">
-            <div class="absolute justify-self-start ml-16">
-                <h3 class="font-Poppins text-6xl text-amber-600 font-bold">Digital badges<span
-                        class="text-white">,</span></h3>
-                <h3 class="font-Poppins text-6xl text-white font-bold">but actually cool.</h3>
-                <p class="text-gray-400 font-Poppins font-medium text-xl w-[800px] mt-6">Reward & collect verifiable
-                    digital badges for skills, achievements, and memories. Build collections
-                    and create your own badge board. Show off via LinkedIn, Twitter, GitHub and GitLab.</p>
-                <p class="text-gray-400 font-Poppins font-medium text-xl mt-6">And guess what? They're not NFTs.</p>
-            </div>
+<!-- NAVBAR -->
+<nav class="border-gray-200 bg-slate-900">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 shadow-xl">
+        <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="/src/img/logopin.png" class="h-8" alt="Flowbite Logo" />
+            <span class="self-center text-2xl font-Poppins font-semibold whitespace-nowrap text-white">Bang<span
+                    class="self-center text-2xl font-Poppins font-semibold whitespace-nowrap ms-1 p-0 px-2 text-black bg-amber-600 rounded-sm">Bros</span></span>
+        </a>
+        <div class="flex items-center space-x-6 rtl:space-x-reverse">
+            <a href="tel:5541251234"
+                class="text-sm font-Poppins font-bold text-center text-white hover:text-amber-600 ease-in duration-200">Sign
+                Up</a>
+            <span class="text-gray-400 h-full">|</span>
+            <a href="#"
+                class="text-sm font-Poppins font-bold text-center text-white hover:text-amber-600 ease-in duration-200">Login</a>
         </div>
     </div>
-    <!-- N HOME -->
-
-    <!-- USER -->
-    <div class="container bg-black">
-        <div class="p-16 flex justify-evenly">
-            <h1 class="font-Poppins font-bold text-white text-7xl">600,000+
-                <p class="font-Poppins font-semibold text-amber-600 text-lg">Badges issued on BangBros</p>
-            </h1>
-            <h1 class="font-Poppins font-bold text-white text-7xl">783
-                <p class="font-Poppins font-semibold text-amber-600 text-lg">Badge issuers</p>
-            </h1>
-            <h1 class="font-Poppins font-bold text-white text-7xl">245,000
-                <p class="font-Poppins font-semibold text-amber-600 text-lg">People collecting Holopins</p>
-            </h1>
-            <h1 class="font-Poppins font-bold text-white text-7xl">2018
-                <p class="font-Poppins font-semibold text-amber-600 text-lg w-36">First Holopin issued</p>
-            </h1>
+</nav>
+<nav class="bg-slate-800">
+    <div class="max-w-screen-xl px-4 py-3 mx-auto">
+        <div class="flex items-center">
+            <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                <li>
+                    <a href="#" class="text-white font-Poppins font-medium hover:text-amber-600 ease-in duration-200"
+                        aria-current="page">Home</a>
+                </li>
+                <li id="mega-menu-full-dropdown-" data-collapse-toggle="mega-menu-full-dropdown"
+                    class="flex items-center justify-between w-full font-medium text-white rounded md:w-auto  hover:text-amber-600 md:p-0 ease-in duration-200">
+                    Resources
+                    <svg class="w-2.5 h-2.5 ms-2.5 mt-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 4 4 4-4" />
+                    </svg>
+                </li>
+                <li>
+                    <a href="#"
+                        class="text-white font-Poppins font-medium hover:text-amber-600 ease-in duration-200">Pricing</a>
+                </li>
+            </ul>
         </div>
     </div>
-    <!-- N USER -->
+    <div id="mega-menu-full-dropdown" class="mt-1 shadow-sm bg-slate-900 hidden">
+        <div class="grid max-w-screen-xl px-4 py-5 mx-auto text-white sm:grid-cols-2 md:px-6">
+            <ul>
+                <li>
+                    <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
+                        <div class="font-semibold text-white">Features</div>
+                        <span class="text-sm text-gray-400">Explore all BangBros features and try them
+                            yourself</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
+                        <div class="font-semibold text-white">Integrations</div>
+                        <span class="text-sm text-gray-400">Connect BangBros with your favorite tools</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
+                        <div class="font-semibold text-white group">Documentation</div>
+                        <span class="text-sm text-gray-400">Learn how to use BangBros API</span>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
+                        <div class="font-semibold text-white">Support</div>
+                        <span class="text-sm text-gray-400">Get answers to your questions about BangBros</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
+                        <div class="font-semibold text-white">Bros AI 🪄 <span
+                                class="inline-block align-middle rounded-lg border border-lime-500 text-lime-500 px-2 ml-1.5 mb-[3.5px]">New</span>
+                        </div>
+                        <span class="text-sm text-gray-400">Design your own custom badges and stickers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 ease-in duration-200">
+                        <div class="font-semibold text-white">Blog</div>
+                        <span class="text-sm text-gray-400">Read the latest news about BangBros</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- N NAVBAR -->
 
-    <!-- CARD -->
-    <div class="container bg-black"></div>
-    <div class="container bg-white p-10">
-        <div class="container flex justify-center">
-            <div class="max-w-7xl p-6 bg-gray-700 rounded-lg mt-20">
-                <h1 class="text-2xl font-Poppins font-semibold text-white">A wholesome way to <span
-                        class="text-amber-600">celebrate awesomeness.</span></h1>
-                <p class="font-Poppins text-lg">Holopin is a platform that allows you to issue digital badges that
-                    people love. Recognize
-                    accomplishments, motivate learning, reward employees and promote company culture in a whole new way.
-                </p>
-                <div class=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:mx-auto mt-5 p-5">
-                    <div
-                        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-20">
-                        <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-                        </svg>
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Spark
-                                Joy
-                                with
-                                Digital Badges</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Say goodbye to boring certificates
-                            and
-                            hello to
-                            Holopin's fun and interactive sticker-like digital badges. Recognize and reward your
-                            employees
-                            or
-                            community in a memorable way that sparks joy.</p>
-                    </div>
+<!-- HOME -->
+<div class="container w-full flex content-center">
+    <div class="w-full flex justify-center text-center"
+        style="background-image: url(/src/img/Background-home.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;">
+        <div class="grid grid-cols-1 content-center">
+            <h3 class="font-Poppins text-3xl text-amber-600 font-bold 2xl:text-7xl">Digital badges<span
+                    class="text-white">,</span></h3>
+            <h3 class="font-Poppins text-3xl text-white font-bold 2xl:text-7xl">but actually cool.</h3>
+            <p class="text-gray-400 font-Poppins font-medium text-sm px-3 mt-6">Reward & collect verifiable
+                digital badges for skills, achievements, and memories. Build collections
+                and create your own badge board. Show off via LinkedIn, Twitter, GitHub and GitLab.</p>
+            <p class="text-gray-400 font-Poppins font-medium text-sm mt-6">And guess what? They're not NFTs.</p>
+        </div>
+    </div>
+</div>
+<!-- N HOME -->
 
-                    <div
-                        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-20">
-                        <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-                        </svg>
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Issue
-                                Rewards
-                                in a
-                                Snap</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Holopin offers multiple ways to
-                            issue
-                            digital
-                            badges, including via URL, email, QR codes, or our API. Our intuitive web interface and API
-                            integration
-                            make issuing badges a breeze.</p>
-                    </div>
+<!-- USER -->
+<div class="container  bg-black py-2 px-3 mt-">
+    <div class="w-full text-center sm:grid sm:grid-cols-1 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 ">
+        <h1 class="font-Poppins font-bold text-white text-7xl lg:text-5xl mt-5">600,000+
+            <p class="font-Poppins font-semibold text-amber-600 text-lg">Badges issued on BangBros</p>
+        </h1>
+        <h1 class="font-Poppins font-bold text-white text-7xl lg:text-5xl mt-5">579
+            <p class="font-Poppins font-semibold text-amber-600 text-lg">Badge issuers</p>
+        </h1>
+        <h1 class="font-Poppins font-bold text-white text-7xl lg:text-5xl mt-5 mb-5">100,000
+            <p class="font-Poppins font-semibold text-amber-600 text-lg">People collecting Holopins</p>
+        </h1>
+        <h1 class="font-Poppins font-bold text-white text-7xl lg:text-5xl mt-5 mb-5">2019
+            <p class="font-Poppins font-semibold text-amber-600 text-lg">First Holopin issued</p>
+        </h1>
+    </div>
+</div>
+<!-- N USER -->
 
-                    <div
-                        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-20">
-                        <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-                        </svg>
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                Embeddable
-                                Badge
-                                Boards with Laptop Sticker Vibes</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Display your badges proudly on our
-                            dynamic
-                            badge boards. Customize the layout and share them on social media or embed them on your
-                            GitHub
-                            or
-                            website.</p>
-                    </div>
-
-                    <div
-                        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-20">
-                        <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-                        </svg>
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                Powerful
-                                Integrations</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Holopin integrates seamlessly with
-                            popular
-                            platforms like GitHub, messaging apps, and more. Automate the process and make it even more
-                            convenient
-                            for you and your recipients.</p>
-                    </div>
-
-                    <div
-                        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-20">
-                        <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-                        </svg>
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Engage
-                                with
-                                Holobytes</h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Give recognition with Holobytes, a
-                            fun
-                            and
-                            interactive way to say thank you. Holobytes are permanent records of recognition, complete
+<!-- CARD -->
+<div class="container bg-gray-950 p-10">
+    <div class="container flex justify-center">
+        <div class="max-w-7xl p-6 bg-gray-900 rounded-lg mt-20">
+            <h1 class="text-5xl font-Poppins font-semibold text-white text-center mt-20">A wholesome way to <span
+                    class="text-amber-600">celebrate awesomeness.</span></h1>
+            <p class="font-Poppins text-lg text-center mt-5 text-gray-500">Holopin is a platform that allows you to
+                issue digital badges that
+                people love. Recognize
+                accomplishments, motivate learning, reward employees and promote company culture in a whole new way.
+            </p>
+            <div class=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 align-middle mt-5 p-5 gap-4">
+                <div class="max-w-sm p-6 bg-gray-800 rounded-lg shadow mt-20">
+                    <i class='bx bxs-badge bx-rotate-90 text-5xl mb-3' style='color:#d97706'></i>
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white">Spark
+                            Joy
                             with
-                            interactive icons to choose from.</p>
-                    </div>
+                            Digital Badges</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-500">Say goodbye to boring certificates
+                        and
+                        hello to
+                        Holopin's fun and interactive sticker-like digital badges. Recognize and reward your
+                        employees
+                        or
+                        community in a memorable way that sparks joy.</p>
+                </div>
 
-                    <div
-                        class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-20">
-                        <svg class="w-7 h-7 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-                        </svg>
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Gamify
-                                Everything!
-                            </h5>
-                        </a>
-                        <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Use Holopin badges to gamify your
-                            onboarding
-                            flows, thank your community for their support, encourage open-source contributions, motivate
-                            employee
-                            training, and so much more.</p>
-                    </div>
+                <div class="max-w-sm p-6 bg-gray-800 rounded-lg shadow mt-20">
+                    <i class='bx bx-export bx-flip-horizontal text-5xl mb-3' style='color:#d97706'></i>
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white">Issue
+                            Rewards
+                            in a
+                            Snap</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-500">Holopin offers multiple ways to
+                        issue
+                        digital
+                        badges, including via URL, email, QR codes, or our API. Our intuitive web interface and API
+                        integration
+                        make issuing badges a breeze.</p>
+                </div>
+
+                <div class="max-w-sm p-6 bg-gray-800 rounded-lg shadow mt-20">
+                    <i class='bx bxl-windows bx-flip-horizontal text-5xl mb-3' style='color:#d97706'></i>
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white">
+                            Embeddable
+                            Badge
+                            Boards with Laptop Sticker Vibes</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-500">Display your badges proudly on our
+                        dynamic
+                        badge boards. Customize the layout and share them on social media or embed them on your
+                        GitHub
+                        or
+                        website.</p>
+                </div>
+
+                <div class="max-w-sm p-6 bg-gray-800 rounded-lg shadow mt-20">
+                    <i class='bx bxs-note bx-flip-horizontal text-5xl mb-3' style='color:#d97706'></i>
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white">
+                            Powerful
+                            Integrations</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-500">Holopin integrates seamlessly with
+                        popular
+                        platforms like GitHub, messaging apps, and more. Automate the process and make it even more
+                        convenient
+                        for you and your recipients.</p>
+                </div>
+
+                <div class="max-w-sm p-6 bg-gray-800 rounded-lg shadow mt-20">
+                    <i class='bx bxs-upvote bx-flip-horizontal text-5xl mb-3' style='color:#d97706'></i>
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white">Engage
+                            with
+                            Holobytes</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-500">Give recognition with Holobytes, a
+                        fun
+                        and
+                        interactive way to say thank you. Holobytes are permanent records of recognition, complete
+                        with
+                        interactive icons to choose from.</p>
+                </div>
+
+                <div class="max-w-sm p-6 bg-gray-800 rounded-lg shadow mt-20">
+                    <i class='bx bxs-crown bx-flip-horizontal text-5xl mb-3' style='color:#d97706'></i>
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white">Gamify
+                            Everything!
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-500">Use Holopin badges to gamify your
+                        onboarding
+                        flows, thank your community for their support, encourage open-source contributions, motivate
+                        employee
+                        training, and so much more.</p>
                 </div>
             </div>
         </div>
-
     </div>
-    </div>
-    <!-- N CARD -->
 
-    <!-- SUBSCRIBE -->
-    <div class="container bg-black">
-        <div class="p-16">
-            <h3 class="text-5xl text-white font-extrabold font-Poppins text-center w-96">Finally, the <span
-                    class="font-Monospace text-amber-600">
-                    <<span>input</span>></span> at
-                the bottom of every single landing page!</h3>
-            <p class="text-center text-gray-600">Subscribe to our newsletter to be the first to hear about new Holopin
-                features and top secret badges. Only the good stuff.</p>
-            <form>
-                <input type="email"
-                    class="bg-gray-900 border border-gray-500 text-gray-500 text-sm rounded-lg focus:ring-amber-600 focus:border-amber-600 p-2.5 flex mx-auto"
-                    placeholder="Email" required>
-            </form>
-            <button
-                class="text-amber-600 bg-amber-950 border border-amber-600 rounded-sm p-3 py-1 flex mx-auto">Subscribe</button>
-        </div>
-    </div>
-    <!-- N SUBSCRIBE -->
+</div>
+</div>
+<!-- N CARD -->
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-800">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-            <div class="md:flex md:justify-between">
-                <div class="mb-6 md:mb-0">
-                    <a href="#" class="flex items-center">
-                        <img src="/src/img/logopin.png" class="h-8 me-3" alt="FlowBite Logo" />
-                        <span
-                            class="self-center text-2xl font-Poppins font-semibold whitespace-nowrap text-white">Bang<span
-                                class="self-center text-2xl font-Poppins font-semibold whitespace-nowrap ms-1 p-0 px-2 text-black bg-amber-600 rounded-sm">Bros</span></span>
-                    </a>
-                </div>
-                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-                    <div>
-                        <h2 class="mb-6 text-sm font-semibold text-white uppercase">Resources</h2>
-                        <ul class="text-gray-500 font-medium">
-                            <li class="mb-4">
-                                <a href="https://flowbite.com/"
-                                    class="hover:text-white ease-in duration-200">Flowbite</a>
-                            </li>
-                            <li>
-                                <a href="https://tailwindcss.com/"
-                                    class="hover:text-white ease-in duration-200">Tailwind CSS</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 class="mb-6 text-sm font-semibold text-white uppercase">Follow us</h2>
-                        <ul class="text-gray-500 font-medium">
-                            <li class="mb-4">
-                                <a href="https://github.com/themesberg/flowbite"
-                                    class="hover:text-white ease-in duration-200">Github</a>
-                            </li>
-                            <li>
-                                <a href="https://discord.gg/4eeurUVvTy"
-                                    class="hover:text-white ease-in duration-200">Discord</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 class="mb-6 text-sm font-semibold text-white uppercase">Legal</h2>
-                        <ul class="text-gray-500 font-medium">
-                            <li class="mb-4">
-                                <a href="#" class="hover:text-white ease-in duration-200">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hover:text-white ease-in duration-200">Terms &amp; Conditions</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+<!-- SUBSCRIBE -->
+<div class="container">
+    <div class="bg-black p-8">
+        <h3 class="text-5xl text-white font-extrabold font-Poppins text-center">Finally, the <span
+                class="font-Monospace text-amber-600">
+                <<span>input</span>></span> at
+            the bottom of every single landing page!</h3>
+        <p class="text-center text-gray-600 p-6">Subscribe to our newsletter to be the first to hear about new
+            Holopin
+            features and top secret badges. Only the good stuff.</p>
+        <form>
+            <input type="email"
+                class="bg-gray-900 border border-gray-500 text-gray-500 text-sm rounded-lg focus:ring-amber-600 focus:border-amber-600 p-2.5 flex mx-auto w-80"
+                placeholder="Email" required>
+        </form>
+        <button
+            class="text-amber-600 bg-amber-950 border border-amber-600 rounded-md p-3 py-1 flex mx-auto mt-7">Subscribe</button>
+    </div>
+</div>
+<!-- N SUBSCRIBE -->
+
+<!-- FOOTER -->
+<footer class="bg-slate-800">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="md:flex md:justify-between">
+            <div class="mb-6 md:mb-0">
+                <a href="#" class="flex items-center">
+                    <img src="/src/img/logopin.png" class="h-8 me-3" alt="FlowBite Logo" />
+                    <span class="self-center text-2xl font-Poppins font-semibold whitespace-nowrap text-white">Bang<span
+                            class="self-center text-2xl font-Poppins font-semibold whitespace-nowrap ms-1 p-0 px-2 text-black bg-amber-600 rounded-sm">Bros</span></span>
+                </a>
             </div>
-            <hr class="my-6 sm:mx-auto border-gray-700 lg:my-8" />
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm sm:text-center text-gray-400">© 2023 <a href="https://flowbite.com/"
-                        class="hover:text-gray-700 ease-in duration-200">BangBros™</a>. All Rights Reserved.
-                </span>
-                <div class="flex mt-4 sm:justify-center sm:mt-0">
-                    <a href="#" class="text-gray-500 hover:text-white duration-200">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 8 19">
-                            <path fill-rule="evenodd"
-                                d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span class="sr-only">Facebook page</span>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-white ms-5 duration-200">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 21 16">
-                            <path
-                                d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
-                        </svg>
-                        <span class="sr-only">Discord community</span>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-white ms-5 duration-200">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 20 17">
-                            <path fill-rule="evenodd"
-                                d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span class="sr-only">Twitter page</span>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-white ms-5 duration-200">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span class="sr-only">GitHub account</span>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-white ms-5 duration-200">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <span class="sr-only">Dribbble account</span>
-                    </a>
+            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                <div>
+                    <h2 class="mb-6 text-sm font-semibold text-white uppercase">Resources</h2>
+                    <ul class="text-gray-500 font-medium">
+                        <li class="mb-4">
+                            <a href="https://flowbite.com/" class="hover:text-white ease-in duration-200">Flowbite</a>
+                        </li>
+                        <li>
+                            <a href="https://tailwindcss.com/" class="hover:text-white ease-in duration-200">Tailwind
+                                CSS</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-6 text-sm font-semibold text-white uppercase">Follow us</h2>
+                    <ul class="text-gray-500 font-medium">
+                        <li class="mb-4">
+                            <a href="https://github.com/themesberg/flowbite"
+                                class="hover:text-white ease-in duration-200">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://discord.gg/4eeurUVvTy"
+                                class="hover:text-white ease-in duration-200">Discord</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-6 text-sm font-semibold text-white uppercase">Legal</h2>
+                    <ul class="text-gray-500 font-medium">
+                        <li class="mb-4">
+                            <a href="#" class="hover:text-white ease-in duration-200">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-white ease-in duration-200">Terms &amp; Conditions</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- N FOOTER -->
+        <hr class="my-6 sm:mx-auto border-gray-700 lg:my-8" />
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <span class="text-sm sm:text-center text-gray-400">© 2023 <a href="https://flowbite.com/"
+                    class="hover:text-gray-700 ease-in duration-200">BangBros™</a>. All Rights Reserved.
+            </span>
+            <div class="flex mt-4 sm:justify-center sm:mt-0">
+                <a href="#" class="text-gray-500 hover:text-white duration-200">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 8 19">
+                        <path fill-rule="evenodd"
+                            d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="sr-only">Facebook page</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-white ms-5 duration-200">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 21 16">
+                        <path
+                            d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
+                    </svg>
+                    <span class="sr-only">Discord community</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-white ms-5 duration-200">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 20 17">
+                        <path fill-rule="evenodd"
+                            d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="sr-only">Twitter page</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-white ms-5 duration-200">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="sr-only">GitHub account</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-white ms-5 duration-200">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span class="sr-only">Dribbble account</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- N FOOTER -->
 
-    <!-- Flowbite -->
-    <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
+<!-- Flowbite -->
+<script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
 </body>
 
 </html>
